@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.penoder.penchat.ui.fragment.MessageFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.penoder.mylibrary.view.CustomTitle
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftIcon="@drawable/icon_back_white" />
+
+        <com.penoder.mylibrary.refresh.PenoderRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/message"
+                android:textColor="@color/commonTextBlack"
+                android:textSize="@dimen/text_size_24" />
+
+        </com.penoder.mylibrary.refresh.PenoderRefreshLayout>
+
+    </LinearLayout>
+
+</layout>

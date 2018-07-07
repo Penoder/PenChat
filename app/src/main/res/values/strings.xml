@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PenChat</string>
+    <string name="message">消息</string>
+    <string name="contact">联系人</string>
+    <string name="dynamic">动态</string>
+    <string name="mine">我</string>
+</resources>
