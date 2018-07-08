@@ -17,7 +17,8 @@
         <com.penoder.mylibrary.view.CustomTitle
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:leftIcon="@drawable/icon_back_white" />
+            app:leftIconEnable="false"
+            app:titleTxt="@string/message" />
 
         <com.penoder.mylibrary.refresh.PenoderRefreshLayout
             android:layout_width="match_parent"

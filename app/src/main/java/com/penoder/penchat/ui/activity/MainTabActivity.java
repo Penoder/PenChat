@@ -1,7 +1,6 @@
 package com.penoder.penchat.ui.activity;
 
 import android.databinding.ObservableBoolean;
-import android.support.v4.app.Fragment;
 
 import com.penoder.mylibrary.adapter.CommonFragmentAdapter;
 import com.penoder.mylibrary.dataBindinig.command.BindingCommand;
@@ -21,8 +20,6 @@ public class MainTabActivity extends BaseActivity<ActivityMainTabBinding> {
     public final ObservableBoolean isDynamicSelected = new ObservableBoolean(false);
     public final ObservableBoolean isCenterSelected = new ObservableBoolean(false);
 
-    private Fragment messageFragment, contactFragment, dynamicFragment, minFragment;
-
     @Override
     protected int getLayoutID() {
         return R.layout.activity_main_tab;
@@ -31,10 +28,10 @@ public class MainTabActivity extends BaseActivity<ActivityMainTabBinding> {
     @Override
     public void initData() {
         super.initData();
-        messageFragment = new MessageFragment();
-        contactFragment = new ContactFragment();
-        dynamicFragment = new DynamicFragment();
-        minFragment = new MineFragment();
+        MessageFragment messageFragment = new MessageFragment();
+        ContactFragment contactFragment = new ContactFragment();
+        DynamicFragment dynamicFragment = new DynamicFragment();
+        MineFragment minFragment = new MineFragment();
         getBinding().viewPagerMain.setAdapter(new CommonFragmentAdapter(getSupportFragmentManager(),
                 messageFragment, contactFragment, dynamicFragment, minFragment));
         getBinding().viewPagerMain.setCurrentItem(0);
