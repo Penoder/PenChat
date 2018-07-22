@@ -26,15 +26,52 @@
         <com.penoder.mylibrary.refresh.PenoderRefreshLayout
             android:id="@+id/refresh_msgList"
             android:layout_width="match_parent"
-            app:onRefreshCommand="@{viewModel.onRefreshCommand}"
+            android:layout_height="match_parent"
             app:onLoadingCommand="@{viewModel.onLoadingCommand}"
-            android:layout_height="match_parent">
+            app:onRefreshCommand="@{viewModel.onRefreshCommand}">
 
-            <com.penchat.widget.HFRecycler.HFRecyclerView
-                android:id="@+id/recycler_msgContent"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/item_message_list" />
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/linear_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="12dp"
+                    onClickCommand="@{viewModel.onSearchCommand}"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/shape_round5_sloid_divider_black"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_search_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="6dp"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/label_search"
+                        android:textColor="@color/secondTextBlack"
+                        android:textSize="@dimen/text_size_12" />
+
+                </LinearLayout>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
 
         </com.penoder.mylibrary.refresh.PenoderRefreshLayout>
 

@@ -62,7 +62,7 @@ public abstract class BaseFragment<V extends ViewDataBinding> extends Fragment {
     public void initData() {
     }
 
-    private boolean isFastClick() {
+    protected boolean isFastClick() {
         return isFastClick(500);
     }
 

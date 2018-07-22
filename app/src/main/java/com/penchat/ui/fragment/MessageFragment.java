@@ -12,6 +12,7 @@ import com.penchat.entity.MsgBean;
 import com.penchat.ui.activity.SearchActivity;
 import com.penchat.ui.adapter.MsgListAdapter;
 import com.penchat.ui.base.BaseFragment;
+import com.penoder.mylibrary.adapter.CommonFragmentAdapter;
 import com.penoder.mylibrary.dataBindinig.command.BindingCommand;
 import com.penchat.R;
 import com.penchat.databinding.FragmentMessageBinding;
@@ -19,6 +20,7 @@ import com.penchat.databinding.FragmentMessageBinding;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.rong.imkit.fragment.ConversationListFragment;
 import io.rong.imlib.model.Conversation;
 
 public class MessageFragment extends BaseFragment<FragmentMessageBinding> {
@@ -35,14 +37,8 @@ public class MessageFragment extends BaseFragment<FragmentMessageBinding> {
     @Override
     public void initView() {
         super.initView();
-        View searchView = LayoutInflater.from(mContext).inflate(R.layout.layout_search_msg_list, null);
-        searchView.findViewById(R.id.linear_search).setOnClickListener(v -> {
-            startActivity(new Intent(mContext, SearchActivity.class));
-        });
-        msgAdapter = new MsgListAdapter(mContext, msgBeanList);
-        getBinding().recyclerMsgContent.setHeaderView(searchView);
-        getBinding().recyclerMsgContent.setLayoutManager(new LinearLayoutManager(mContext));
-        getBinding().recyclerMsgContent.setAdapter(msgAdapter);
+        ConversationListFragment listFragment = new ConversationListFragment();
+        getBinding().viewPagerMsg.setAdapter(new CommonFragmentAdapter(getChildFragmentManager(), listFragment));
     }
 
     @Override
@@ -68,10 +64,18 @@ public class MessageFragment extends BaseFragment<FragmentMessageBinding> {
 
     });
 
+    public BindingCommand onSearchCommand = new BindingCommand(() -> {
+        if (isFastClick()) {
+            return;
+        }
+        startActivity(new Intent(mContext, SearchActivity.class));
+    });
+
     /**
      * 刷新事件
      */
     public BindingCommand onRefreshCommand = new BindingCommand(() -> {
+        //
         getBinding().refreshMsgList.finishRefresh();
     });
 
@@ -79,6 +83,7 @@ public class MessageFragment extends BaseFragment<FragmentMessageBinding> {
      * 加载事件
      */
     public BindingCommand onLoadingCommand = new BindingCommand(() -> {
+        //
         getBinding().refreshMsgList.finishLoadmore();
     });
 }

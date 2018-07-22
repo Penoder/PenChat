@@ -1,1 +1,1 @@
-include ':app', ':mylibrary', ':rongcloud', ':rongcloud'
+include ':app', ':mylibrary', ':IMLib', ':IMKit'

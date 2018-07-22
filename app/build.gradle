@@ -78,5 +78,6 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     compile 'com.android.support:multidex:1.0.3'
     compile project(':mylibrary')
-    compile project(':rongcloud')
+    compile project(':IMLib')
+    compile project(':IMKit')
 }

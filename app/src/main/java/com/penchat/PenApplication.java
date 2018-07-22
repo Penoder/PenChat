@@ -3,12 +3,10 @@ package com.penchat;
 import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
-import android.util.Log;
 
 import com.penchat.im.MyReceiveMsgListener;
 
 import io.rong.imlib.RongIMClient;
-import io.rong.imlib.model.Message;
 
 public class PenApplication extends Application {
 
