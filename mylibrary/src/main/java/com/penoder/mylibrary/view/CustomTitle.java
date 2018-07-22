@@ -73,11 +73,11 @@ public class CustomTitle extends LinearLayout {
     private void initView(AttributeSet attrs) {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         View view = LayoutInflater.from(mContext).inflate(R.layout.custom_title_bar, null);
-        txtTitle = (TextView) view.findViewById(R.id.txt_title);
-        imgLeftIcon = (ImageView) view.findViewById(R.id.img_leftIcon);
-        txtLeftTitle = (TextView) view.findViewById(R.id.txt_leftTitle);
-        imgRightIcon = (ImageView) view.findViewById(R.id.img_rightIcon);
-        txtRightTitle = (TextView) view.findViewById(R.id.txt_rightTitle);
+        txtTitle = view.findViewById(R.id.txt_title);
+        imgLeftIcon = view.findViewById(R.id.img_leftIcon);
+        txtLeftTitle = view.findViewById(R.id.txt_leftTitle);
+        imgRightIcon = view.findViewById(R.id.img_rightIcon);
+        txtRightTitle = view.findViewById(R.id.txt_rightTitle);
         view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         if (attrs != null) {

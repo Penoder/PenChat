@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.penoder.penchat.ui.activity.MainTabActivity" />
+            type="com.penchat.ui.activity.MainTabActivity" />
     </data>
 
     <LinearLayout

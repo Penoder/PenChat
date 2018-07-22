@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.penchat.ui.activity.SearchActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:padding="6dp">
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_round5_sloid_divider_black"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_margin="5dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_search_gray" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginStart="4dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/label_search"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:textColor="@color/black0.3"
+                    android:textColorHint="@color/black0.9"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/text_size_14" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/mainColor"
+                android:textSize="@dimen/text_size_14"
+                app:onClickCommand="@{viewModel.onCancelCommand}" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

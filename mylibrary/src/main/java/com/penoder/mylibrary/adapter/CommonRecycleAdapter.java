@@ -30,6 +30,10 @@ public abstract class CommonRecycleAdapter<T> extends RecyclerView.Adapter<Commo
 
     @Override
     public void onBindViewHolder(CommonRecycleAdapter.ViewHolder holder, int position) {
+        if (datas == null || datas.isEmpty() || datas.get(position) == null) {
+            holder.getItemView().setVisibility(View.GONE);
+            return;
+        }
         onConvertView(datas.get(position), holder, position);
     }
 
@@ -38,11 +42,6 @@ public abstract class CommonRecycleAdapter<T> extends RecyclerView.Adapter<Commo
     @Override
     public int getItemCount() {
         return datas != null ? datas.size() : 0;
-    }
-
-    public void setDatas(List<T> datas) {
-        this.datas = datas;
-        notifyDataSetChanged();
     }
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
@@ -56,8 +55,6 @@ public abstract class CommonRecycleAdapter<T> extends RecyclerView.Adapter<Commo
 
         /**
          * 获取 Item 布局
-         *
-         * @return
          */
         public View getItemView() {
             return itemView;
@@ -65,13 +62,9 @@ public abstract class CommonRecycleAdapter<T> extends RecyclerView.Adapter<Commo
 
         /**
          * 获取 Item 布局中的某个控件
-         *
-         * @param viewId
-         * @param <T>
-         * @return
          */
-        public <T extends View> T getView(int viewId) {
-            return (T) itemView.findViewById(viewId);
+        public <V extends View> V getView(int viewId) {
+            return itemView.findViewById(viewId);
         }
     }
 }

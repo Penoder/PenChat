@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="viewModel"
-            type="com.penoder.penchat.ui.fragment.MessageFragment" />
+            type="com.penchat.ui.fragment.MessageFragment" />
     </data>
 
     <LinearLayout
@@ -18,19 +19,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:leftIconEnable="false"
+            app:rightIcon="@drawable/icon_add"
+            app:rightIconClickCommand="@{viewModel.onAddCommand}"
             app:titleTxt="@string/message" />
 
         <com.penoder.mylibrary.refresh.PenoderRefreshLayout
+            android:id="@+id/refresh_msgList"
             android:layout_width="match_parent"
+            app:onRefreshCommand="@{viewModel.onRefreshCommand}"
+            app:onLoadingCommand="@{viewModel.onLoadingCommand}"
             android:layout_height="match_parent">
 
-            <TextView
+            <com.penchat.widget.HFRecycler.HFRecyclerView
+                android:id="@+id/recycler_msgContent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/message"
-                android:textColor="@color/commonTextBlack"
-                android:textSize="@dimen/text_size_24" />
+                tools:listitem="@layout/item_message_list" />
 
         </com.penoder.mylibrary.refresh.PenoderRefreshLayout>
 

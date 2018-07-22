@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,7 +13,7 @@ import java.util.List;
  */
 public abstract class CommonListAdapter<T> extends BaseAdapter {
 
-    private List<T> datas = new ArrayList<>();
+    private List<T> datas;
     private int layoutId;
 
     public CommonListAdapter(List<T> datas, int layoutId) {
@@ -39,21 +38,22 @@ public abstract class CommonListAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        CommonListAdapter.ViewHolder holder;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (CommonListAdapter.ViewHolder) convertView.getTag();
         }
 
-        onBindView(datas.get(position), holder, position);
+
+        onConvertView(datas.get(position), holder, position);
 
         return convertView;
     }
 
-    public abstract void onBindView(T t, ViewHolder holder, int position);
+    protected abstract void onConvertView(T t, CommonListAdapter.ViewHolder holder, int position);
 
     public class ViewHolder {
 
@@ -67,8 +67,8 @@ public abstract class CommonListAdapter<T> extends BaseAdapter {
             return itemView;
         }
 
-        public <T extends View> T getView(int viewId) {
-            return (T) itemView.findViewById(viewId);
+        public <V extends View> V getView(int viewId) {
+            return itemView.findViewById(viewId);
         }
     }
 }

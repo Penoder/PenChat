@@ -3,10 +3,17 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/mainColor</item>
+        <item name="colorPrimaryDark">@color/mainColor</item>
+        <item name="colorAccent">@color/mainColor</item>
     </style>
 
     <style name="FullScreenTheme" parent="AppTheme">
         <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="SplashTheme" parent="FullScreenTheme">
+        <item name="android:background">@drawable/img_splash</item>
     </style>
 
     <style name="Horizontal_Background_Line">

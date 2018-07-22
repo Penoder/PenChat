@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="6dp">
+
+    <com.penoder.mylibrary.view.CircleImageView
+        android:id="@+id/circleImg_msgHead"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="6dp"
+        tools:src="@drawable/icon_default_avatar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtView_msgTime"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingBottom="4dp"
+            android:paddingEnd="6dp"
+            android:paddingStart="12dp"
+            android:paddingTop="4dp"
+            android:textColor="@color/black0.9"
+            android:textSize="@dimen/text_size_10"
+            tools:text="11:23" />
+
+        <TextView
+            android:id="@+id/txtView_msgTitle"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_alignBaseline="@+id/txtView_msgTime"
+            android:layout_marginEnd="12dp"
+            android:layout_toStartOf="@+id/txtView_msgTime"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_14"
+            tools:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/txtView_msgContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/txtView_msgTitle"
+            android:layout_marginBottom="2dp"
+            android:gravity="bottom"
+            android:maxLines="1"
+            android:textColor="@color/secondTextBlack"
+            android:textSize="@dimen/text_size_12"
+            tools:text="张三：今晚吃什么？" />
+
+    </RelativeLayout>
+
+</LinearLayout>
